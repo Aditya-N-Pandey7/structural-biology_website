@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein Structure: The Secondary Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.4/3Dmol-min.js"></script>
+    <style>
+        /* Minimal custom styles needed now */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .hero-bg {
+            background-color: #0f172a; /* Even darker base for hero */
+            background-image:
+                radial-gradient(at 47% 33%, hsla(220, 10%, 25%, 0.8) 0, transparent 60%), /* Darker, less bright center glow */
+                radial-gradient(at 82% 65%, hsla(240, 10%, 15%, 0.7) 0, transparent 55%); /* Darker, subtle secondary glow */
+            /* Ensure text contrast is handled by Tailwind classes */
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+
+    <header class="bg-slate-900/80 backdrop-blur-sm shadow-lg shadow-indigo-950/30 sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white">
+                <span class="text-indigo-500">Structural</span> Biology
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#introduction" class="text-slate-300 hover:text-indigo-500 transition-colors duration-200">Introduction</a>
+                <a href="#secondary-structures" class="text-slate-300 hover:text-indigo-500 transition-colors duration-200">Secondary Structures</a>
+                <a href="#interactive-viewer" class="text-slate-300 hover:text-indigo-500 transition-colors duration-200">3D Viewer</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white drop-shadow-lg">The Amazing World of Proteins</h1>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white drop-shadow-lg">The Architecture of Life</h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto drop-shadow-md">Exploring the foundational secondary structures that define protein form and function.</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-16">
+
+        <section id="introduction" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-6">From Sequence to Shape</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="text-lg leading-relaxed space-y-4 text-slate-300">
+                    <p>Proteins are the workhorses of the cell, performing a vast array of functions. Their ability to do so is dictated by their intricate three-dimensional shape. This journey from a simple linear chain of amino acids (the <strong class="text-indigo-500 font-semibold">primary structure</strong>) to a complex functional protein is a marvel of biological engineering.</p>
+                    <p>The first step in this folding process is the formation of local, regular structures known as <strong class="text-indigo-500 font-semibold">secondary structures</strong>. These are the fundamental building blocks that form the core of most protein domains.</p>
+                </div>
+                <div>
+                    <div class="bg-slate-800 rounded-lg p-6 shadow-xl shadow-indigo-950/20">
+                        <h4 class="font-bold text-lg text-white mb-4 text-center">Example Polypeptide Chain</h4>
+                        <div class="p-4 bg-slate-700 rounded-md border border-slate-600">
+                            <img src="amino_acids.png.png" alt="Chemical structures of various amino acids" class="mx-auto" style="filter: brightness(0.9) saturate(1.2);">
+                        </div>
+                        <p class="text-sm text-center text-slate-400 mt-3">The primary structure is the specific sequence of amino acids, whose chemical structures are shown above.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="secondary-structures" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">How Secondary Structures Form</h2>
+
+            <div class="flex flex-col items-center w-full max-w-4xl mx-auto">
+    
+                <div class="w-full max-w-lg bg-slate-800 p-6 rounded-xl shadow-xl shadow-indigo-950/20 text-center border-l-4 border-indigo-500">
+                    <p class="text-sm font-semibold text-indigo-400">STEP 1: PRIMARY STRUCTURE</p>
+                    <h3 class="font-bold text-xl text-white mt-1">Linear Amino Acid Chain</h3>
+                    <div class="my-4 flex justify-center bg-slate-700 rounded-md p-2 border border-slate-600">
+                        <img src="linear_chain.png" alt="Diagram of a linear amino acid chain" class="max-w-xs h-auto rounded-sm">
+                    </div>
+                    <p class="text-slate-300 mt-2">The process starts with a simple, linear sequence of amino acids linked together to form a polypeptide chain.</p>
+                </div>
+            
+                <div class="my-4 text-2xl font-light text-indigo-500">▼</div>
+            
+                <div class="w-full max-w-lg bg-slate-800 p-6 rounded-xl shadow-xl shadow-indigo-950/20 text-center border-l-4 border-indigo-500">
+                    <p class="text-sm font-semibold text-indigo-400">STEP 2: HYDROGEN BONDING</p>
+                    <h3 class="font-bold text-xl text-white mt-1">Backbone Interactions</h3>
+                    <div class="my-4 flex justify-center bg-slate-700 rounded-md p-2 border border-slate-600">
+                        <img src="hydrogen_bonding.png" alt="Diagram showing hydrogen bonds in protein backbone" class="max-w-xs h-auto rounded-sm">
+                    </div>
+                    <p class="text-slate-300 mt-2">Hydrogen bonds form between atoms in the polypeptide backbone (not the side chains). Specifically, between C=O and N-H groups.</p>
+                </div>
+            
+                <div class="my-4 text-2xl font-light text-indigo-500">▼</div>
+            
+                <div class="w-full max-w-lg bg-slate-800 p-6 rounded-xl shadow-xl shadow-indigo-950/20 text-center border-l-4 border-rose-500">
+                    <p class="text-sm font-semibold text-rose-400">STEP 3: LOCAL FOLDING</p>
+                    <h3 class="font-bold text-xl text-white mt-1">Formation of Repeating Patterns</h3>
+                    <div class="my-4 flex justify-center bg-slate-700 rounded-md p-2 border border-slate-600">
+                        <img src="local_folding.png" alt="Diagram showing local folding into secondary structures" class="max-w-xs h-auto rounded-sm">
+                    </div>
+                    <p class="text-slate-300 mt-2">These hydrogen bonds cause the polypeptide chain to fold into localized, regular, and repeating structural patterns.</p>
+                </div>
+            
+                <div class="my-6 text-center text-lg font-light text-slate-400">This results in two main types of structures:</div>
+                
+                <div class="w-full grid md:grid-cols-2 gap-8 mt-4">
+                    <div class="bg-slate-800 rounded-xl shadow-xl shadow-indigo-950/20 overflow-hidden flex flex-col p-8 border-t-4 border-teal-500">
+                        <h3 class="text-2xl font-bold text-white mb-3">The α-Helix</h3>
+                        <div class="mb-4 flex justify-center bg-slate-700 rounded-md p-2 border border-slate-600">
+                            <img src="alpha_helix.png" alt="Diagram of an Alpha-Helix protein structure" class="max-w-xs h-auto">
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            A right-handed coiled or spiral conformation. It's stabilized by hydrogen bonds between the C=O group of one amino acid and the N-H group of the amino acid four residues earlier. This regular pattern creates a strong, stable rod-like structure.
+                        </p>
+                    </div>
+            
+                    <div class="bg-slate-800 rounded-xl shadow-xl shadow-indigo-950/20 overflow-hidden flex flex-col p-8 border-t-4 border-sky-500">
+                        <h3 class="text-2xl font-bold text-white mb-3">The β-Sheet</h3>
+                        <div class="mb-4 flex justify-center bg-slate-700 rounded-md p-2 border border-slate-600">
+                            <img src="beta_sheet.png" alt="Diagram of a Beta-Sheet protein structure" class="max-w-xs h-auto">
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            Consists of laterally connected strands of polypeptides. Hydrogen bonds form between adjacent strands, creating a pleated, sheet-like structure. Strands can be <strong class="font-semibold text-slate-200">parallel</strong> or <strong class="font-semibold text-slate-200">anti-parallel</strong>, influencing the sheet's topology.
+                        </p>
+                    </div>
+                </div>
+            
+            </div>
+
+        </section>
+
+        <section id="interactive-viewer" class="scroll-mt-20">
+            <div class="bg-slate-800 rounded-xl shadow-2xl shadow-indigo-950/30 p-8">
+                <h2 class="text-3xl font-bold text-white mb-2 text-center">Interactive 3D Viewer</h2>
+                <p class="text-center text-slate-300 mb-6 max-w-2xl mx-auto">Explore the secondary structures of Myoglobin (PDB ID: 1MBO). Use your mouse to rotate, pan, and zoom. Notice the abundance of α-helices in this particular protein.</p>
+                <div id="viewer-container" class="relative w-full h-96 md:h-[600px] bg-black rounded-lg overflow-hidden border border-slate-700">
+                    <div id="protein-viewer" class="w-full h-full"></div>
+                </div>
+                   <div class="mt-4 text-center text-sm text-slate-400">
+                       <p>PDB ID: <span class="mono font-semibold">1MBO</span> | <a href="https://www.rcsb.org/structure/1mbo" target="_blank" class="text-indigo-500 hover:underline">View on RCSB PDB</a></p>
+                   </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 mt-16 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Structural Biology Project. A demonstration website.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 3Dmol.js viewer script
+        window.addEventListener('load', function() {
+            try {
+                let element = document.getElementById('protein-viewer');
+                let config = { backgroundColor: '#101010' }; // A near-black background
+                let viewer = $3Dmol.createViewer(element, config);
+
+                let pdbId = '1MBO';
+                $3Dmol.download('pdb:' + pdbId, viewer, {}, function() {
+                    viewer.setStyle({}, {
+                        cartoon: {
+                            color: 'spectrum'
+                        }
+                    });
+                    viewer.render();
+                    viewer.zoomTo();
+                    viewer.zoom(1.2, 1000);
+                });
+            } catch (e) {
+                console.error("3Dmol.js viewer failed to load.", e);
+                let container = document.getElementById('viewer-container');
+                if(container) {
+                    container.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-slate-800 text-white"><p>Error: Could not load 3D protein viewer.</p></div>';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
